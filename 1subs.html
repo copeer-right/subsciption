@@ -1,0 +1,23 @@
+<b><h1>Fan Plan<h1/><b/>
+
+<div id="paypal-button-container"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AXJ4oFM23GQ7EhfXdCF-kkNQEqCd3_x3fDG94IoaB7wv5oGiTN8Af4fVPyrwD-wXgk8tUQ4FnyuExfFO&vault=true" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe',
+          
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          'plan_id': 'P-594930960J279223UL5J5DRQ'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID);
+      }
+  }).render('#paypal-button-container');
+</script>
